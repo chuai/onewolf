@@ -6,12 +6,15 @@
 <head>
 <meta charset="utf-8" />
 <title>个人管理系统</title>
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
 <meta name="keywords" content="Zero个人测试所用" />
 <meta name="description" content="Zero个人测试所用模板" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <!-- basic styles -->
-<link href="<c:out value="${front_css_js}"/>css/bootstrap.min.css" rel="stylesheet" type="text/css"></script>
+<link href="<c:out value="${front_css_js}"/>css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="<c:out value="${front_css_js}"/>css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
 
 
 <!--[if IE 7]>
@@ -85,7 +88,7 @@
             
             <div class="alert alert-block alert-success">
               <button type="button" class="close" data-dismiss="alert"> <i class="icon-remove"></i> </button>
-              <i class="icon-ok green"></i> 欢迎使用 <strong class="green"> Zero的后台管理系统 <small>(v1.0)</small> </strong> ,测试专用. </div>
+              <i class="icon-ok green"></i> 欢迎使用 <strong class="green"> 大山_一匹狼的后台管理系统 <small>(v1.0)</small> </strong> ,感谢ACE的模板，测试专用. </div>
             <div class="row">
               <div class="space-6"></div>
               <div class="col-sm-7 infobox-container">

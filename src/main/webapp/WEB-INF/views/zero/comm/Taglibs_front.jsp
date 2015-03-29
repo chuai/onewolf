@@ -24,9 +24,15 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 
 
-<c:set var="front_css_js" value="http://127.0.0.1:8080/onewolf/resources/assets/" />
+<c:set var="front_css_js" value="/onewolf/resources/assets/" />
+<%-- <c:set var="front_css_js" value="http://127.0.0.1:8080/onewolf/resources/assets/" /> --%>
 
-<c:set var="frontgoto_css_js" value="http://127.0.0.1:8080/onewolf/resources/zero/front/" />
+<!-- 引入js文件 -->
+<c:set var="front_js" value="http://localhost:8080/onewolf/resources/js/front/" />
+
+
+
+<%-- <c:set var="frontgoto_css_js" value="http://127.0.0.1:8080/onewolf/resources/zero/front/" /> --%>
 
 
 
