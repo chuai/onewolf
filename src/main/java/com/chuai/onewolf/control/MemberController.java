@@ -31,7 +31,7 @@ public class MemberController {
 
 	// ///////////////////////////
 	// login_提交
-	@RequestMapping(value = "/member/loginForm")
+	@RequestMapping(value = "/member/loginForm", method=RequestMethod.POST)
 	public String loginForm(@ModelAttribute("member") Member member,
 			HttpServletRequest req, HttpServletResponse response)
 			throws Exception {

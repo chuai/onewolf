@@ -74,7 +74,7 @@
 
 											<div class="space-6"></div>
 
-											<form id="loginFormId" action="${pageContext.request.contextPath}/member/loginForm"　method="post">
+											<form id="loginFormId" action="${pageContext.request.contextPath}/member/loginForm" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-left">
