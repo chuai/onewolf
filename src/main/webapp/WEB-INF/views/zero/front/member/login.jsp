@@ -78,7 +78,7 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-left">
-															<input type="text" class="form-control" placeholder="用户名" id="username" name="username"/>
+															<input type="text" class="form-control" placeholder="用户名" id="user_name" name="user_name"/>
 															<i class="icon-user"></i>
 														</span>
 													</label>
@@ -197,30 +197,31 @@
 
 											<div class="space-6"></div>
 											
-											<form>
+<!-- 											<form id="regFormId"> -->
+											<form id="regFormId" action="${pageContext.request.contextPath}/member/registerForm" method="post">
 												<fieldset>
                                                 	<label class="block clearfix">
 														<span class="block input-icon input-icon-left">
-															<input type="text" class="form-control" placeholder="用户名" />
+															<input type="text" class="form-control" placeholder="用户名" id="reg_user_name" name="user_name"/>
 															<i class="icon-user"></i>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-left">
-															<input type="password" class="form-control" placeholder="密码" />
+															<input type="password" class="form-control" placeholder="密码" id="reg_password" name="password" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-left">
-															<input type="password" class="form-control" placeholder="确认密码" />
+															<input type="password" class="form-control" placeholder="确认密码" id="reg_repassword" name="repassword" />
 															<i class="icon-retweet"></i>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-left">
-															<input type="email" class="form-control" placeholder="邮箱" />
+															<input type="email" class="form-control" placeholder="邮箱" id="email" name="email"/>
 															<i class="icon-envelope"></i>
 														</span>
 													</label>
@@ -240,7 +241,7 @@
 															重置
 														</button>
 
-														<button type="button" class="width-30 pull-right btn btn-sm btn-success">
+														<button type="submit" class="width-30 pull-right btn btn-sm btn-success" id="regButton">
 															注册 
 															<i class="icon-arrow-right icon-on-right"></i>
 														</button>

@@ -6,14 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.chuai.onewolf.entity.model.Member;
+import com.chuai.onewolf.entity.model.MemberBean;
 
 public class LoginCheckInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		Member member = (Member) request.getSession().getAttribute(
+		MemberBean member = (MemberBean) request.getSession().getAttribute(
 				"memberLogin");
 		if (member == null) {
 			response.sendRedirect(request.getContextPath() + "/member/login.jsp");

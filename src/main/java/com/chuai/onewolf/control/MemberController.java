@@ -12,80 +12,98 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.web.servlet.mvc.SimpleFormController;
+
+import com.chuai.onewolf.entity.model.MemberBean;
 
 @Controller
+@RequestMapping(value = "/member")
 public class MemberController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(MemberController.class);
 
-	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-		return "front/member/login";
-	}
-
-	@RequestMapping(value = "/member/profile", method = RequestMethod.GET)
+	/**
+	 * 显示个人信息页面
+	 * 
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String profile(Locale locale, Model model) {
 		return "front/member/profile";
 	}
 
-	// ///////////////////////////
-	// login_提交
-	@RequestMapping(value = "/member/loginForm", method=RequestMethod.POST)
-	public String loginForm(@ModelAttribute("member") Member member,
+	// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * 显示登录界面
+	 * 
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		return "front/member/login";
+	}
+
+	// 注册
+	@RequestMapping(value = "/registerForm", method = RequestMethod.POST)
+	public String registerForm(@ModelAttribute("member") MemberBean member,
 			HttpServletRequest req, HttpServletResponse response)
 			throws Exception {
-		System.out.println(member.getUsername() + " : " + member.getPassword());
 
-		if ("admin".equals(member.getUsername())) {
+		System.out
+				.println(member.getUser_name() + " : " + member.getPassword());
+
+		if ("admin".equals(member.getUser_name())) {
+			logger.info(member.getUser_name() + " : " + member.getPassword());
 			return "/front/main";
 		}
 		return "/front/member/login";
 	}
 
-	private Member member;
+	// 登录
+	@RequestMapping(value = "/loginForm", method = RequestMethod.POST)
+	public String loginForm(@ModelAttribute("member") MemberBean member,
+			HttpServletRequest req, HttpServletResponse response)
+			throws Exception {
+		System.out
+				.println(member.getUser_name() + " : " + member.getPassword());
 
-	public Member getMember() {
-		return member;
+		if ("admin".equals(member.getUser_name())) {
+			return "/front/main";
+		}
+		return "/front/member/login";
 	}
 
-	public void setMember(Member member) {
-		this.member = member;
+	// logout
+	@RequestMapping(value = "/loginout", method = RequestMethod.POST)
+	public String loginOut() throws Exception {
+
+		return "/front/main";
+
+	}
+
+	// 忘记密码
+	@RequestMapping(value = "/findPassword", method = RequestMethod.POST)
+	public String findPassword() throws Exception {
+
+		return "/front/main";
+
+	}
+
+	// 更改密码
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	public String changePassword() throws Exception {
+
+		return "/front/main";
+
 	}
 
 	public static Logger getLogger() {
 		return logger;
-	}
-}
-
-class Member {
-	private String username;
-	private String password;
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Member(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
-
-	public Member() {
-		super();
 	}
 
 }
