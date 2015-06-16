@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="onewolf_member" >
+
+<!-- 投资客户收支记录（结算插入) -->
+	<insert id="insertMember"
+		parameterClass="com.chuai.onewolf.entity.model.MemberBean">
+		insert into onewolf_member (username, password
+		realname, sex) values (
+		#user_name#,#password#,#user_firstname#,#sex#)
+	</insert>
+  
+</sqlMap>

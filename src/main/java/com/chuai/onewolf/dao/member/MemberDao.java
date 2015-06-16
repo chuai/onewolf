@@ -4,18 +4,18 @@ import java.util.Map;
 
 import com.chuai.onewolf.entity.model.MemberBean;
 
-public interface MemberDao {
+public interface MemberDao   {
 	// select_by_id
-	public MemberBean selectMemberById(Map<String, Object> map);
+	public MemberBean selectMember(Map<String, Object> map);
 
 	// select_all
-	public MemberBean selectMemberByAll();
+	// public MemberBean selectMemberByAll();
 
 	// insert_by_id
-	public void insertMemberById(Map<String, Object> map);
+	public void insertMember(MemberBean member);
 
 	// insert_by_all
-	public void insertMemberByAll();
+	// public void insertMemberByAll();
 
 	// update_by_id
 	public void updateMemberByParam(Map<String, Object> map);

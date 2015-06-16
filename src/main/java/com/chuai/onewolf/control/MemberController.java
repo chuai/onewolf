@@ -1,12 +1,15 @@
 package com.chuai.onewolf.control;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import com.chuai.onewolf.entity.model.MemberBean;
+import com.chuai.onewolf.server.member.MemberService;
 
 @Controller
 @RequestMapping(value = "/member")
 public class MemberController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(MemberController.class);
+	@Autowired
+	private MemberService memberService;
 
 	/**
 	 * 显示个人信息页面
@@ -59,6 +65,7 @@ public class MemberController {
 
 		if ("admin".equals(member.getUser_name())) {
 			logger.info(member.getUser_name() + " : " + member.getPassword());
+			memberService.insertMemberRegister(member);
 			return "/front/main";
 		}
 		return "/front/member/login";
@@ -73,6 +80,10 @@ public class MemberController {
 				.println(member.getUser_name() + " : " + member.getPassword());
 
 		if ("admin".equals(member.getUser_name())) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			logger.info(member.getUser_name() + " : " + member.getPassword());
+//			memberService.insertMemberLogin(map);
+			memberService.insertMemberRegister(member);
 			return "/front/main";
 		}
 		return "/front/member/login";
